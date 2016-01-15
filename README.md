@@ -32,7 +32,7 @@ Just wrap the file input in a container
 
 `file: form.html`
 ```
-<form action="events" method="post" role="form">
+<form action="/events" method="post" role="form">
     <h1>Create event</h1>
     <div class="form-group">
         <label for="event_name">Name: </label>

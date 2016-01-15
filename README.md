@@ -44,7 +44,7 @@ Just wrap the file input in a container
     </div>
     <div class="form-group">
         <label for="event_images">Images: </label>
-        <div class="js-file-drop-container">
+        <div id="js-file-drop-container">
             <div class="row" id="files"></div>
             <div class="row">
                 <h1 class="info">Drop files here or click to upload</h1>

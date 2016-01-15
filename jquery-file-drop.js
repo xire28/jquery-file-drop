@@ -1,6 +1,6 @@
 /**
 /* ===================================================
- *  jquery-file-drop.js v1.0.1
+ *  jquery-file-drop.js v1.0.2
  *  https://github.com/xire28/jquery-file-drop
  * ===================================================
  * 
@@ -30,8 +30,7 @@
                 $el = base.$el,
                 $parentForm = $el.closest('form'),
                 parentForm = $parentForm[0],
-                $tokenInput = $parentForm.find('input[name="' + baseOptions.tokenName + '"]'),
-                trigger = $el.trigger
+                $tokenInput = $parentForm.find('input[name="' + baseOptions.tokenName + '"]')
 
             // Throw on critical exceptions
             if (!baseOptions.url) throw 'Cannot create file drop container, upload url is not defined'
@@ -39,10 +38,10 @@
 
             // Default generated options that can be overriden
             var defautGeneratedOptions = {
-                beforeSend: trigger.bind($el, 'ajax:beforeSend'),
-                complete: trigger.bind($el, 'ajax:complete'),
-                success: trigger.bind($el, 'ajax:success'),
-                error: trigger.bind($el, 'ajax:error'),
+                beforeSend: base.triggerOnContainer('ajax:beforeSend'),
+                complete: base.triggerOnContainer('ajax:complete'),
+                success: base.triggerOnContainer('ajax:success'),
+                error: base.triggerOnContainer('ajax:error'),
                 data: {},
                 info: {
                     data: {}
@@ -56,10 +55,10 @@
 
                 // Add triggers for info request
                 $.extend(defautGeneratedOptions.info, {
-                    beforeSend: trigger.bind($el, 'info:ajax:beforeSend'),
-                    success: trigger.bind($el, 'info:ajax:success'),
-                    complete: trigger.bind($el, 'info:ajax:complete'),
-                    error: trigger.bind($el, 'info:ajax:error')
+                    beforeSend: base.triggerOnContainer('info:ajax:beforeSend'),
+                    success: base.triggerOnContainer('info:ajax:success'),
+                    complete: base.triggerOnContainer('info:ajax:complete'),
+                    error: base.triggerOnContainer('info:ajax:error')
                 })
             }
 
@@ -77,7 +76,7 @@
                 })
 
             // Trigger DOM event to allow implementation for denied files
-            $el.trigger('files:deny', [deniedFiles])
+            base.triggerOnContainer('files:deny', deniedFiles)
 
             return acceptedFiles
         }
@@ -138,7 +137,7 @@
                 var uploadRequest = base.sendFiles(name, files, options)
 
                 // Trigger DOM event to allow implementation for uploading files (e.g. listen to progress event to update progressbar, generate thumbnail using file data URI, etc.)
-                base.$el.trigger('files:upload', [files, uploadRequest])
+                base.triggerOnContainer('files:upload', files, uploadRequest)
 
                 if (options.info.url) {
                     // Create local variable for js response to access upload request and files (requires jquery-remote-js-scope plugin to be processed)
@@ -172,6 +171,11 @@
                     })
                     .on('change', listenerWithInput)
                     .detach()
+            }
+        },
+        base.triggerOnContainer = function(event){
+            return function(){
+                base.$el.trigger(event, arguments)
             }
         }
 

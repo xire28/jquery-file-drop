@@ -1,6 +1,6 @@
 {
   "name": "jquery-file-drop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/xire28/jquery-file-drop",
   "authors": ["Pagliaro Alexandre"],
   "description": "Easy to use and unopinionated file drag and drop jquery plugin with graceful degradation",

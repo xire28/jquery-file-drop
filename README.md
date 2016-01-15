@@ -7,7 +7,7 @@ Easy to use and unopinionated file drag and drop jquery plugin with graceful deg
 
 ## Note
 
-It is recommended to use the unobtrusive driver for this plugin([behavior-file-drop-container-ujs](https://github.com/xire28/behavior-file-drop-container-ujs))
+It is recommended to use the unobtrusive driver for this plugin ([behavior-file-drop-container-ujs](https://github.com/xire28/behavior-file-drop-container-ujs))
 
 ## Install
 

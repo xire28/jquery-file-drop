@@ -1,6 +1,6 @@
 /**
 /* ===================================================
- *  jquery-file-drop.js v1.0.0
+ *  jquery-file-drop.js v1.0.1
  *  https://github.com/xire28/jquery-file-drop
  * ===================================================
  * 
@@ -8,12 +8,10 @@
  *
  * Requires
  *   - JQuery 1.8.0 or later (https://github.com/jquery/jquery)
- *   - Modernizr 2.x (https://github.com/modernizr/modernizr)
- *        Filereader detect
  *
  * Recommended
  *   - JQuery-remote-js-scope latest (https://github.com/xire28/jquery-remote-js-scope)
- *        Access request scope containing upload request and files from the remote js response
+ *        Access request scope containing files and upload request from the remote JS response
  *
  * Released under the MIT license
  *
@@ -140,7 +138,7 @@
                 var uploadRequest = base.sendFiles(name, files, options)
 
                 // Trigger DOM event to allow implementation for uploading files (e.g. listen to progress event to update progressbar, generate thumbnail using file data URI, etc.)
-                $el.trigger('files:upload', [files, uploadRequest])
+                base.$el.trigger('files:upload', [files, uploadRequest])
 
                 if (options.info.url) {
                     // Create local variable for js response to access upload request and files (requires jquery-remote-js-scope plugin to be processed)
@@ -154,7 +152,7 @@
         }
 
         base.init = function(options) {
-            if (window.Modernizr.filereader) {
+            if (window.File && window.FileList && window.FileReader) {
                 var $el = base.$el,
                     $fileInput = $el.find('input[type="file"]').first(),
                     listenerWithInput = base.listener.bind(base, $fileInput)

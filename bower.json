@@ -1,6 +1,6 @@
 {
   "name": "jquery-file-drop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/xire28/jquery-file-drop",
   "authors": ["Pagliaro Alexandre"],
   "description": "Easy to use and unopinionated file drag and drop jquery plugin with graceful degradation",
@@ -8,13 +8,15 @@
   "license": "MIT",
   "dependencies": {
     "jquery": ">1.8.*",
-    "jquery-remote-js-scope": "~1",
-    "modernizr": "~3"
+    "jquery-remote-js-scope": "~1"
   },
   "keywords": [
     "jquery",
+    "drag",
+    "drop",
     "file",
-    "drop and drop"
+    "unobtrusive",
+    "fallback"
   ],
   "ignore": [
     "**/.*",

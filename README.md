@@ -140,6 +140,9 @@ The following events are triggered on the drop container to allow a client side 
 
 Events signatures documentated here: [jQuery-ujs documentation](https://github.com/rails/jquery-ujs/wiki/ajax)
 
+##Demo
+
+[View demo with adapter](https://github.com/xire28/behavior-file-drop-container-ujs)
 
 ##TODO
 

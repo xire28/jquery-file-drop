@@ -5,6 +5,10 @@ Easy to use and unopinionated file drag and drop jquery plugin with graceful deg
 
 - JQuery 1.8.x or higher
 
+## Recommended
+
+- [JQuery-remote-js-scope](https://github.com/xire28/jquery-remote-js-scope)
+
 ## Note
 
 It is recommended to use the unobtrusive driver for this plugin ([behavior-file-drop-container-ujs](https://github.com/xire28/behavior-file-drop-container-ujs))
